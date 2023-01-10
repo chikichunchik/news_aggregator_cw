@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>{{category}}</title>
+</head>
+<body style="background-color:#CDB599FF;">
+<a href="{{url_for('index')}}"><-- Back to home page</a>
+<br>
+Filter by
+<form method="GET" action="{{url_for('show_all', category=category, page=1)}}">
+    Source
+    <select name="source">
+      {% for iter_source in sources %}
+        <option value="{{iter_source}}" {{"selected" if iter_source == source else ''}}> {{iter_source}}</option>
+      {% endfor %}
+    </select>
+    <br>
+      <input type="submit" value ="Submit">
+</form>
+<h1 style="margin-left:auto;margin-right:auto;width:50%"> {{category}} </h1>
+    <table style="border:1px solid black;margin-left:auto;margin-right:auto;width:50%">
+        <tr>
+            <td span="1" style="width: 35%;">Title</td>
+            <td span="1" style="width: 10%;">Source</td>
+            <td span="1" style="width: 5%;">Published at</td>
+          </tr>
+    {% for row in news %}
+
+          <tr>
+            <td><a href="{{row[2]}}" target=”_blank”>{{row[0]}}</a></td>
+            <td>{{row[5]}}</td>
+            <td>{{row[3]}}</td>
+          </tr>
+    {% endfor %}
+    </table>
+<p style="margin-left:auto;margin-right:auto;width:50%">
+    <a href="{{url_for('show_all', category=category, page=int(page)-1, source=source)}}"> <--Previous page</a>
+     |
+    <a href="{{url_for('show_all', category=category, page=int(page)+1, source=source)}}">Next page--></a>
+</p>
+</body>
+</html>

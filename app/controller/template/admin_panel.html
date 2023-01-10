@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin panel</title>
+</head>
+<body style="background-color:#CDB599FF;">
+<a href="{{url_for('index')}}"><-- Back to home page</a>
+<br>
+<br>
+<form method="GET" action="/admin_message">
+    <input type="submit" value="Get all statuses", name="type">
+</form>
+<br>
+<br>
+<form method="GET" action="/admin_message">
+    Change source status:
+    <br>
+    <label for="source_id">Source id:</label>
+    <select name="source_id" id="source_id">
+      {% for id in ids %}
+        <option value="{{id}}">{{id}}</option>
+      {% endfor %}
+    </select>
+    <br>
+    <label for="status">Status:</label>
+    <select name="status" id="status">
+        <option value="1">True</option>
+         <option value="0">False</option>
+    </select>
+    <br>
+    <input type="submit" value="Update status" name="type">
+</form>
+<br>
+<br>
+<form method="GET" action="/admin_message">
+    Change models versions:
+    <br>
+    <label for="model_name">Model name:</label>
+    <select name="model_name" id="model_name">
+        <option value="cv">cv</option>
+        <option value="tfidf">tfidf</option>
+        <option value="predictor">predictor</option>
+    </select>
+    <br>
+    <label for="file">File:</label>
+    <select name="file" id="file">
+      {% for file in files %}
+        <option value="{{file}}">{{file}}</option>
+      {% endfor %}
+    </select>
+    <br>
+    <input type="submit" value="Update model" name="type">
+</form>
+</body>
+</html>

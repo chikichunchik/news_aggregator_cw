@@ -1,0 +1,8 @@
+Flask==2.2.2
+joblib==1.2.0
+newsapi_python==0.2.6
+nltk==3.7
+pandas==1.4.4
+PyMySQL==1.0.2
+scikit-learn
+flask_httpauth

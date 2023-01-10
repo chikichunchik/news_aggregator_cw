@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body style="background-color:#CDB599FF;">
+<a href="{{url_for('admin_panel')}}"><-- Back to admin panel</a>
+
+<br>
+{% for message in messages %}
+{{message}}
+<br>
+{% endfor %}
+</body>
+</html>
