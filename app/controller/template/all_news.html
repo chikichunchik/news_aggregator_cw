@@ -10,7 +10,7 @@ table, th, td {
     <title>{{category}}</title>
 </head>
 <body style="background-color:#CDB599FF;">
-<a href="{{url_for('index')}}"><-- Back to home page</a>
+<a href="{{url_for('index', source=source)}}"><-- Back to home page</a>
 <br>
 Filter by
 <form method="GET" action="{{url_for('show_all', category=category, page=1)}}">
